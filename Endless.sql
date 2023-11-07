@@ -4,24 +4,19 @@ GO
 USE EndlessDB;
 GO
 
--- Tạo bảng LoaiGiay
-CREATE TABLE LoaiGiay (
-    MaLoaiGiay INT PRIMARY KEY IDENTITY(1,1),
-    TenLoaiGiay NVARCHAR(50)
-);
-GO
-
 -- Tạo bảng MauSac
 CREATE TABLE MauSac (
     MaMauSac INT PRIMARY KEY IDENTITY(1,1),
-    TenMauSac NVARCHAR(50)
+    TenMauSac NVARCHAR(50),
+	Mota NVARCHAR(255)
 );
 GO
 
 -- Tạo bảng KichThuoc
 CREATE TABLE KichThuoc (
     MaKichThuoc INT PRIMARY KEY IDENTITY(1,1),
-    TenKichThuoc NVARCHAR(10)
+    TenKichThuoc NVARCHAR(10),
+	Mota NVARCHAR(255)
 );
 GO
 
@@ -29,7 +24,7 @@ GO
 CREATE TABLE KhuyenMai (
     MaKM INT PRIMARY KEY IDENTITY(1,1),
     TenKM NVARCHAR(255),
-    PhanTram FLOAT,
+    MucGiamGia FLOAT,
     NgayBatDau DATE,
     NgayKetThuc DATE
 );
@@ -39,12 +34,12 @@ GO
 CREATE TABLE NhanVien (
     MaNV INT PRIMARY KEY IDENTITY(1,1),
     TenNV NVARCHAR(255),
+    MaTK VARCHAR(10) UNIQUE, 
+    MatKhau NVARCHAR(50),
     NgaySinh DATE,
-    DiaChi NVARCHAR(255),
     SDT NVARCHAR(20),
     Email VARCHAR(50),
-    MaTK VARCHAR(10) UNIQUE, 
-    MatKhau NVARCHAR(50)
+    DiaChi NVARCHAR(255)
 );
 GO
 
@@ -52,8 +47,8 @@ GO
 CREATE TABLE KhachHang (
     MaKH INT PRIMARY KEY IDENTITY(1,1),
     TenKH NVARCHAR(255),
-    DiaChi NVARCHAR(255),
-    SDT NVARCHAR(20)
+    SDT NVARCHAR(20),
+    DiaChi NVARCHAR(255)
 );
 GO
 
@@ -61,12 +56,10 @@ GO
 CREATE TABLE SanPham (
     MaSP INT PRIMARY KEY IDENTITY(1,1),
     TenSP NVARCHAR(255),
-    Gia DECIMAL(18, 2),
-    SoLuong INT,
-    MaLoaiGiay INT,
+    DonGia DECIMAL(18, 2),
+    LoaiGiay NVARCHAR(25),
     MaKM INT,
     KhuyenMai FLOAT,
-    FOREIGN KEY (MaLoaiGiay) REFERENCES LoaiGiay(MaLoaiGiay),
     FOREIGN KEY (MaKM) REFERENCES KhuyenMai(MaKM)
 );
 GO
@@ -78,6 +71,7 @@ CREATE TABLE ChiTietSanPham (
     MaMau INT,
     MaKT INT,
     SoLuong INT,
+	MoTa NVARCHAR(255),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
     FOREIGN KEY (MaMau) REFERENCES MauSac(MaMauSac),
     FOREIGN KEY (MaKT) REFERENCES KichThuoc(MaKichThuoc)
@@ -86,7 +80,7 @@ GO
 
 -- Tạo bảng NhapHang
 CREATE TABLE NhapHang (
-    MaDNH INT PRIMARY KEY IDENTITY(1,1),
+    MaDN INT PRIMARY KEY IDENTITY(1,1),
     MaCTSP INT,
     SoLuong INT,
     NgayNhap DATE,
@@ -105,6 +99,7 @@ CREATE TABLE HoaDon (
     HTThanhToan NVARCHAR(20),
     TienThanhToan FLOAT,
     MaKM INT,
+	TrangThai NVARCHAR(20),	
     FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
     FOREIGN KEY (MaKM) REFERENCES KhuyenMai(MaKM)
