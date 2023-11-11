@@ -29,20 +29,25 @@ public class main extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         menuPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnTrangChu = new controller.CustomButton();
-        btnGiaoDich = new controller.CustomButton();
-        btnHoaDon = new controller.CustomButton();
-        btnDoiHang = new controller.CustomButton();
-        btnNhanVien = new controller.CustomButton();
-        btnKhachHang = new controller.CustomButton();
-        btnNhaCungCap = new controller.CustomButton();
-        btnSanPham = new controller.CustomButton();
-        btnChiTietSanPham = new controller.CustomButton();
-        btnNhapHang = new controller.CustomButton();
-        btnKhuyenMai = new controller.CustomButton();
-        btnThongKe = new controller.CustomButton();
-        btnThoat = new controller.CustomButton();
-        jPanel5 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        clbTrangChu = new controller.CustomLabel();
+        clbGiaoDich = new controller.CustomLabel();
+        clbHoaDon = new controller.CustomLabel();
+        clbDoiHang = new controller.CustomLabel();
+        clbNhanVien = new controller.CustomLabel();
+        clbKhachHang = new controller.CustomLabel();
+        clbNhaCungCap = new controller.CustomLabel();
+        clbSanPham = new controller.CustomLabel();
+        clbChiTietSanPham = new controller.CustomLabel();
+        clbNhapHang = new controller.CustomLabel();
+        clbKhuyenMai = new controller.CustomLabel();
+        clbThongKe = new controller.CustomLabel();
+        clbThoat = new controller.CustomLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,65 +79,66 @@ public class main extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         menuPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 50, 50));
+        menuPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, -1));
+        menuPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, -1));
+        menuPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, -1));
+        menuPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, -1));
+        menuPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, -1));
+        menuPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, -1));
 
-        btnTrangChu.setText("Trang chủ");
-        btnTrangChu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTrangChuActionPerformed(evt);
-            }
-        });
-        menuPanel1.add(btnTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 55));
+        clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 55));
 
-        btnGiaoDich.setText("Giao dịch");
-        menuPanel1.add(btnGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, 55));
+        clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, 55));
 
-        btnHoaDon.setText("Hóa đơn");
-        menuPanel1.add(btnHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 80, 55));
+        clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 80, 55));
 
-        btnDoiHang.setText("Đổi hàng");
-        menuPanel1.add(btnDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 80, 55));
+        clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
+        clbDoiHang.setAutoscrolls(true);
+        menuPanel1.add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 80, 55));
 
-        btnNhanVien.setText("Nhân viên");
-        menuPanel1.add(btnNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 55));
+        clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 55));
 
-        btnKhachHang.setText("Khách hàng");
-        menuPanel1.add(btnKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 80, 55));
+        clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
+        menuPanel1.add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 80, 55));
 
-        btnNhaCungCap.setText("Nhà cung cấp");
-        menuPanel1.add(btnNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 80, 55));
+        clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 80, 55));
 
-        btnSanPham.setText("customButton1");
-        menuPanel1.add(btnSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, 55));
+        clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, 55));
 
-        btnChiTietSanPham.setText("customButton1");
-        menuPanel1.add(btnChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 80, 55));
+        clbChiTietSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbChiTietSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 80, 55));
 
-        btnNhapHang.setText("customButton1");
-        menuPanel1.add(btnNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 80, 55));
+        clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 80, 55));
 
-        btnKhuyenMai.setText("customButton1");
-        menuPanel1.add(btnKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, 55));
+        clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, 55));
 
-        btnThongKe.setText("customButton1");
-        menuPanel1.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 80, 55));
+        clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
+        clbThongKe.setToolTipText("");
+        menuPanel1.add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 80, 55));
 
-        btnThoat.setText("customButton1");
-        menuPanel1.add(btnThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, 55));
-
-        jPanel5.setBackground(new java.awt.Color(0, 0, 23));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        menuPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 80, 30));
+        clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
+        menuPanel1.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, 55));
 
         getContentPane().add(menuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
 
@@ -183,10 +189,6 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_myButton1ActionPerformed
 
-    private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrangChuActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -224,26 +226,31 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private controller.CustomButton btnChiTietSanPham;
-    private controller.CustomButton btnDoiHang;
-    private controller.CustomButton btnGiaoDich;
-    private controller.CustomButton btnHoaDon;
-    private controller.CustomButton btnKhachHang;
-    private controller.CustomButton btnKhuyenMai;
-    private controller.CustomButton btnNhaCungCap;
-    private controller.CustomButton btnNhanVien;
-    private controller.CustomButton btnNhapHang;
-    private controller.CustomButton btnSanPham;
-    private controller.CustomButton btnThoat;
-    private controller.CustomButton btnThongKe;
-    private controller.CustomButton btnTrangChu;
+    private controller.CustomLabel clbChiTietSanPham;
+    private controller.CustomLabel clbDoiHang;
+    private controller.CustomLabel clbGiaoDich;
+    private controller.CustomLabel clbHoaDon;
+    private controller.CustomLabel clbKhachHang;
+    private controller.CustomLabel clbKhuyenMai;
+    private controller.CustomLabel clbNhaCungCap;
+    private controller.CustomLabel clbNhanVien;
+    private controller.CustomLabel clbNhapHang;
+    private controller.CustomLabel clbSanPham;
+    private controller.CustomLabel clbThoat;
+    private controller.CustomLabel clbThongKe;
+    private controller.CustomLabel clbTrangChu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private controller.WhiteLabel lblAnhDaiDien;
     private javax.swing.JPanel menuPanel1;
     private controller.BlackButton myButton1;
