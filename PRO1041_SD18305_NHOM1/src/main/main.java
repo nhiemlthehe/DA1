@@ -27,9 +27,26 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        menuPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnTrangChu = new controller.CustomButton();
+        btnGiaoDich = new controller.CustomButton();
+        btnHoaDon = new controller.CustomButton();
+        btnDoiHang = new controller.CustomButton();
+        btnNhanVien = new controller.CustomButton();
+        btnKhachHang = new controller.CustomButton();
+        btnNhaCungCap = new controller.CustomButton();
+        btnSanPham = new controller.CustomButton();
+        btnChiTietSanPham = new controller.CustomButton();
+        btnNhapHang = new controller.CustomButton();
+        btnKhuyenMai = new controller.CustomButton();
+        btnThongKe = new controller.CustomButton();
+        btnThoat = new controller.CustomButton();
+        jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -50,30 +67,94 @@ public class main extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1550, 870));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setPreferredSize(new java.awt.Dimension(80, 870));
+        menuPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        menuPanel1.setPreferredSize(new java.awt.Dimension(80, 850));
+        menuPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        menuPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 50, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+        btnTrangChu.setText("Trang chủ");
+        btnTrangChu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrangChuActionPerformed(evt);
+            }
+        });
+        menuPanel1.add(btnTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 55));
+
+        btnGiaoDich.setText("Giao dịch");
+        menuPanel1.add(btnGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, 55));
+
+        btnHoaDon.setText("Hóa đơn");
+        menuPanel1.add(btnHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 80, 55));
+
+        btnDoiHang.setText("Đổi hàng");
+        menuPanel1.add(btnDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 80, 55));
+
+        btnNhanVien.setText("Nhân viên");
+        menuPanel1.add(btnNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 55));
+
+        btnKhachHang.setText("Khách hàng");
+        menuPanel1.add(btnKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 80, 55));
+
+        btnNhaCungCap.setText("Nhà cung cấp");
+        menuPanel1.add(btnNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 80, 55));
+
+        btnSanPham.setText("customButton1");
+        menuPanel1.add(btnSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, 55));
+
+        btnChiTietSanPham.setText("customButton1");
+        menuPanel1.add(btnChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 80, 55));
+
+        btnNhapHang.setText("customButton1");
+        menuPanel1.add(btnNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 80, 55));
+
+        btnKhuyenMai.setText("customButton1");
+        menuPanel1.add(btnKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, 55));
+
+        btnThongKe.setText("customButton1");
+        menuPanel1.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 80, 55));
+
+        btnThoat.setText("customButton1");
+        menuPanel1.add(btnThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, 55));
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 23));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 793, Short.MAX_VALUE))
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 870));
+        menuPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 80, 30));
+
+        getContentPane().add(menuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setPreferredSize(new java.awt.Dimension(1800, 80));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Username");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 20, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setText("Role : ");
+        jLabel3.setToolTipText("");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 40, -1, -1));
+
+        lblAnhDaiDien.setText(" ");
+        lblAnhDaiDien.setRadius(40);
+        jPanel3.add(lblAnhDaiDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 20, 40, 40));
 
         myButton1.setBackground(new java.awt.Color(23, 23, 23));
         myButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,14 +166,15 @@ public class main extends javax.swing.JFrame {
                 myButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 10, 220, -1));
+        jPanel3.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 220, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1460, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 80));
 
         jPanel2.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel2.setForeground(new java.awt.Color(240, 62, 0));
         jPanel2.setPreferredSize(new java.awt.Dimension(1500, 80));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 1460, 740));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 1460, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,6 +182,10 @@ public class main extends javax.swing.JFrame {
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_myButton1ActionPerformed
+
+    private void btnTrangChuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrangChuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrangChuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,11 +224,28 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private controller.CustomButton btnChiTietSanPham;
+    private controller.CustomButton btnDoiHang;
+    private controller.CustomButton btnGiaoDich;
+    private controller.CustomButton btnHoaDon;
+    private controller.CustomButton btnKhachHang;
+    private controller.CustomButton btnKhuyenMai;
+    private controller.CustomButton btnNhaCungCap;
+    private controller.CustomButton btnNhanVien;
+    private controller.CustomButton btnNhapHang;
+    private controller.CustomButton btnSanPham;
+    private controller.CustomButton btnThoat;
+    private controller.CustomButton btnThongKe;
+    private controller.CustomButton btnTrangChu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private controller.WhiteLabel lblAnhDaiDien;
+    private javax.swing.JPanel menuPanel1;
     private controller.BlackButton myButton1;
     // End of variables declaration//GEN-END:variables
 }
