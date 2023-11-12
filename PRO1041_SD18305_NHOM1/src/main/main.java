@@ -67,9 +67,7 @@ public class main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1550, 870));
         setMinimumSize(new java.awt.Dimension(1550, 870));
-        setPreferredSize(new java.awt.Dimension(1550, 870));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuPanel1.setBackground(new java.awt.Color(0, 0, 0));
