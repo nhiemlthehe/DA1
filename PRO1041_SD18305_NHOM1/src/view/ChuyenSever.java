@@ -6,14 +6,14 @@ package view;
 
 /**
  *
- * @author Ly Tinh Nhiem
+ * @author Hi There
  */
-public class DangNhap extends javax.swing.JFrame {
+public class ChuyenSever extends javax.swing.JFrame {
 
     /**
-     * Creates new form DangNhap
+     * Creates new form ChuyenSever
      */
-    public DangNhap() {
+    public ChuyenSever() {
         initComponents();
     }
 
@@ -31,13 +31,11 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lblQuenMatKhau = new javax.swing.JLabel();
-        lblThayDoi = new javax.swing.JLabel();
-        txtTenDangNhap = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtMatKhau = new javax.swing.JPasswordField();
-        btnDangNhap = new controller.BlackButton();
+        lblQuayLai = new javax.swing.JLabel();
+        txtSever = new javax.swing.JTextField();
+        btnChuyenDoi = new controller.BlackButton();
         jLabel7 = new javax.swing.JLabel();
+        txtDatabase = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,50 +46,43 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/hinh (2).png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(883, 232, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 530, 470));
 
         jPanel2.setBackground(new java.awt.Color(254, 230, 214));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        jLabel3.setText("Đăng Nhập");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 32, 189, -1));
+        jLabel3.setText("Chuyển Sever");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Mật khẩu:");
+        jLabel4.setText("Sever:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 101, -1));
 
-        lblQuenMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblQuenMatKhau.setText("Quên mật khẩu?");
-        jPanel2.add(lblQuenMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        lblQuayLai.setText("Quay lại đăng nhập");
+        jPanel2.add(lblQuayLai, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 110, -1));
+        jPanel2.add(txtSever, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 260, 40));
 
-        lblThayDoi.setText("Thay đổi sever");
-        jPanel2.add(lblThayDoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 87, -1));
-        jPanel2.add(txtTenDangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 260, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Mat.png"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
-        jPanel2.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 260, 40));
-
-        btnDangNhap.setBackground(new java.awt.Color(242, 80, 25));
-        btnDangNhap.setForeground(new java.awt.Color(255, 255, 255));
-        btnDangNhap.setText("Đăng nhập");
-        btnDangNhap.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDangNhap.setPreferredSize(new java.awt.Dimension(200, 50));
-        btnDangNhap.setRadius(50);
-        btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+        btnChuyenDoi.setBackground(new java.awt.Color(242, 80, 25));
+        btnChuyenDoi.setForeground(new java.awt.Color(255, 255, 255));
+        btnChuyenDoi.setText("Chuyển đổi");
+        btnChuyenDoi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnChuyenDoi.setPreferredSize(new java.awt.Dimension(200, 50));
+        btnChuyenDoi.setRadius(50);
+        btnChuyenDoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDangNhapActionPerformed(evt);
+                btnChuyenDoiActionPerformed(evt);
             }
         });
-        jPanel2.add(btnDangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        jPanel2.add(btnChuyenDoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Tên đăng nhập:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jLabel7.setText("Database:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 80, -1));
+        jPanel2.add(txtDatabase, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 260, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 232, 390, 440));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 210, 390, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,12 +96,11 @@ public class DangNhap extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
+    private void btnChuyenDoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuyenDoiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDangNhapActionPerformed
+    }//GEN-LAST:event_btnChuyenDoiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,36 +119,34 @@ public class DangNhap extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChuyenSever.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChuyenSever.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChuyenSever.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DangNhap.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChuyenSever.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DangNhap().setVisible(true);
+                new ChuyenSever().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private controller.BlackButton btnDangNhap;
+    private controller.BlackButton btnChuyenDoi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblQuenMatKhau;
-    private javax.swing.JLabel lblThayDoi;
-    private javax.swing.JPasswordField txtMatKhau;
-    private javax.swing.JTextField txtTenDangNhap;
+    private javax.swing.JLabel lblQuayLai;
+    private javax.swing.JTextField txtDatabase;
+    private javax.swing.JTextField txtSever;
     // End of variables declaration//GEN-END:variables
 }
