@@ -4,17 +4,38 @@
  */
 package controller;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  *
  * @author Ly Tinh Nhiem
  */
 public class MenuPanel2 extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MenuPanel2
-     */
+    private boolean hovered = false;
+
     public MenuPanel2() {
         initComponents();
+    }
+
+    // Phương thức để thiết lập trạng thái hover
+    public void setHovered(boolean hovered) {
+        this.hovered = hovered;
+        repaint(); // Khi trạng thái hover thay đổi, vẽ lại panel để áp dụng hiệu ứng
+    }
+    
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        if (hovered) {
+            // Vẽ background hoặc áp dụng hiệu ứng hover tùy thuộc vào ý muốn của bạn
+            g.setColor(new Color(100, 100, 100));
+            g.fillRect(0, 0, getWidth(), getHeight());
+        }
+        // Các mã vẽ khác ở đây
     }
 
     /**
@@ -27,19 +48,6 @@ public class MenuPanel2 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        lblTrangChu = new javax.swing.JLabel();
-        lblGiaoDich = new javax.swing.JLabel();
-        lblHoaDon = new javax.swing.JLabel();
-        lblDoiHang = new javax.swing.JLabel();
-        lblNhanVien = new javax.swing.JLabel();
-        lblKhachHang = new javax.swing.JLabel();
-        lblNhaCungCap = new javax.swing.JLabel();
-        lblSanPham = new javax.swing.JLabel();
-        lblChiTiet = new javax.swing.JLabel();
-        lblNhapHang = new javax.swing.JLabel();
-        lblKhuyenMai = new javax.swing.JLabel();
-        lblThongKe = new javax.swing.JLabel();
-        lblThoat = new javax.swing.JLabel();
         clbTrangChu = new controller.CustomLabel();
         clbGiaoDich = new controller.CustomLabel();
         clbHoaDon = new controller.CustomLabel();
@@ -65,136 +73,71 @@ public class MenuPanel2 extends javax.swing.JPanel {
         jLabel1.setText("jLabel1");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, 50));
 
-        lblTrangChu.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblTrangChu.setForeground(new java.awt.Color(255, 255, 255));
-        lblTrangChu.setText("Trang chủ");
-        add(lblTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 120, 20));
-
-        lblGiaoDich.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblGiaoDich.setForeground(new java.awt.Color(255, 255, 255));
-        lblGiaoDich.setText("Trang chủ");
-        add(lblGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 155, 120, 20));
-
-        lblHoaDon.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblHoaDon.setForeground(new java.awt.Color(255, 255, 255));
-        lblHoaDon.setText("Trang chủ");
-        add(lblHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 120, 20));
-
-        lblDoiHang.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblDoiHang.setForeground(new java.awt.Color(255, 255, 255));
-        lblDoiHang.setText("Trang chủ");
-        add(lblDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 265, 120, 20));
-
-        lblNhanVien.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblNhanVien.setForeground(new java.awt.Color(255, 255, 255));
-        lblNhanVien.setText("Trang chủ");
-        add(lblNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 120, 20));
-
-        lblKhachHang.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblKhachHang.setForeground(new java.awt.Color(255, 255, 255));
-        lblKhachHang.setText("Trang chủ");
-        add(lblKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 375, 120, 20));
-
-        lblNhaCungCap.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblNhaCungCap.setForeground(new java.awt.Color(255, 255, 255));
-        lblNhaCungCap.setText("Trang chủ");
-        add(lblNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 120, 20));
-
-        lblSanPham.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblSanPham.setForeground(new java.awt.Color(255, 255, 255));
-        lblSanPham.setText("Trang chủ");
-        add(lblSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 485, 120, 20));
-
-        lblChiTiet.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblChiTiet.setForeground(new java.awt.Color(255, 255, 255));
-        lblChiTiet.setText("Trang chủ");
-        add(lblChiTiet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 120, 20));
-
-        lblNhapHang.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblNhapHang.setForeground(new java.awt.Color(255, 255, 255));
-        lblNhapHang.setText("Trang chủ");
-        add(lblNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 595, 120, 20));
-
-        lblKhuyenMai.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblKhuyenMai.setForeground(new java.awt.Color(255, 255, 255));
-        lblKhuyenMai.setText("Trang chủ");
-        add(lblKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 120, 20));
-
-        lblThongKe.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblThongKe.setForeground(new java.awt.Color(255, 255, 255));
-        lblThongKe.setText("Trang chủ");
-        add(lblThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 705, 120, 20));
-
-        lblThoat.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lblThoat.setForeground(new java.awt.Color(255, 255, 255));
-        lblThoat.setText("Trang chủ");
-        add(lblThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 760, 120, 20));
-
         clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
-        clbTrangChu.setText("                                  ");
+        clbTrangChu.setText("    Trang chủ             ");
         add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
 
         clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
-        clbGiaoDich.setText("                             ");
+        clbGiaoDich.setText("    Giao dịch         ");
         add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
 
         clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
-        clbHoaDon.setText("                             ");
+        clbHoaDon.setText("    Hóa đơn          ");
         add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
 
         clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
-        clbDoiHang.setText("                             ");
+        clbDoiHang.setText("     Đổi hàng         ");
         clbDoiHang.setAutoscrolls(true);
         add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
 
         clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
-        clbNhanVien.setText("                             ");
+        clbNhanVien.setText("      Nhân viên       ");
         add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
 
         clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
-        clbKhachHang.setText("                              ");
+        clbKhachHang.setText("      Khách hàng     ");
         add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
 
         clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
-        clbNhaCungCap.setText("                              ");
+        clbNhaCungCap.setText("     Nhà cung cấp  ");
         add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
 
         clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
-        clbSanPham.setText("                             ");
+        clbSanPham.setText("     Sản phẩm         ");
         add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
 
         clbChiTietSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbChiTietSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
-        clbChiTietSanPham.setText("                             ");
+        clbChiTietSanPham.setText("    Thuộc tính        ");
         add(clbChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
 
         clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
-        clbNhapHang.setText("                             ");
+        clbNhapHang.setText("     Nhập hàng        ");
         add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
 
         clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
-        clbKhuyenMai.setText("                             ");
+        clbKhuyenMai.setText("     Khuyến mãi      ");
         add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
 
         clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
-        clbThongKe.setText("                             ");
+        clbThongKe.setText("    Thống kê           ");
         clbThongKe.setToolTipText("");
         add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
 
         clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
-        clbThoat.setText("                             ");
+        clbThoat.setText("      Thoát               ");
         add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -218,18 +161,5 @@ public class MenuPanel2 extends javax.swing.JPanel {
     private controller.CustomLabel clbThongKe;
     private controller.CustomLabel clbTrangChu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblChiTiet;
-    private javax.swing.JLabel lblDoiHang;
-    private javax.swing.JLabel lblGiaoDich;
-    private javax.swing.JLabel lblHoaDon;
-    private javax.swing.JLabel lblKhachHang;
-    private javax.swing.JLabel lblKhuyenMai;
-    private javax.swing.JLabel lblNhaCungCap;
-    private javax.swing.JLabel lblNhanVien;
-    private javax.swing.JLabel lblNhapHang;
-    private javax.swing.JLabel lblSanPham;
-    private javax.swing.JLabel lblThoat;
-    private javax.swing.JLabel lblThongKe;
-    private javax.swing.JLabel lblTrangChu;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,17 +4,52 @@
  */
 package main;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author Ly Tinh Nhiem
  */
 public class main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TrangChu
-     */
+    private javax.swing.Timer slideTimer;
+    private int menuWidth = 250; // Độ rộng của menu
+    private int slideSpeed = 50; // Tốc độ của hiệu ứng
+    private int targetX = 0; // Vị trí x mục tiêu của menu
+
     public main() {
         initComponents();
+        initSlideAnimation();
+    }
+    
+    
+   private void initSlideAnimation() {
+        slideTimer = new Timer(20, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (menu.getX() < targetX) {
+                    // Nếu menu cần di chuyển về bên phải
+                    menu.setLocation(menu.getX() + slideSpeed, menu.getY());
+                } else if (menu.getX() > targetX) {
+                    // Nếu menu cần di chuyển về bên trái
+                    menu.setLocation(menu.getX() - slideSpeed, menu.getY());
+                }
+
+                if (menu.getX() == targetX) {
+                    // Nếu menu đã đạt được vị trí đích
+                    slideTimer.stop();
+                }
+            }
+        });
+    }
+   
+   
+    private void slideMenu(int targetX) {
+        // Thiết lập vị trí x mục tiêu và bắt đầu hiệu ứng
+        this.targetX = targetX;
+        slideTimer.start();
     }
 
     /**
@@ -27,6 +62,23 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
+        menu = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        clbTrangChu1 = new controller.CustomLabel();
+        clbGiaoDich1 = new controller.CustomLabel();
+        clbHoaDon1 = new controller.CustomLabel();
+        clbDoiHang1 = new controller.CustomLabel();
+        clbNhanVien1 = new controller.CustomLabel();
+        clbKhachHang1 = new controller.CustomLabel();
+        clbNhaCungCap1 = new controller.CustomLabel();
+        clbSanPham1 = new controller.CustomLabel();
+        clbChiTietSanPham1 = new controller.CustomLabel();
+        clbNhapHang1 = new controller.CustomLabel();
+        clbKhuyenMai1 = new controller.CustomLabel();
+        clbThongKe1 = new controller.CustomLabel();
+        clbThoat1 = new controller.CustomLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         menuPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -53,7 +105,8 @@ public class main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
-        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -70,12 +123,117 @@ public class main extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1550, 870));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        menu.setBackground(new java.awt.Color(0, 0, 0));
+        menu.setMaximumSize(new java.awt.Dimension(250, 810));
+        menu.setMinimumSize(new java.awt.Dimension(250, 810));
+        menu.setPreferredSize(new java.awt.Dimension(250, 810));
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuMouseExited(evt);
+            }
+        });
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
+        jLabel4.setText("jLabel1");
+        menu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, 50));
+
+        clbTrangChu1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        clbTrangChu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
+        clbTrangChu1.setText("    Trang chủ             ");
+        menu.add(clbTrangChu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
+
+        clbGiaoDich1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbGiaoDich1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
+        clbGiaoDich1.setText("    Giao dịch         ");
+        menu.add(clbGiaoDich1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
+
+        clbHoaDon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbHoaDon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
+        clbHoaDon1.setText("    Hóa đơn          ");
+        menu.add(clbHoaDon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
+
+        clbDoiHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbDoiHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
+        clbDoiHang1.setText("    Đổi hàng          ");
+        clbDoiHang1.setAutoscrolls(true);
+        menu.add(clbDoiHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
+
+        clbNhanVien1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhanVien1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
+        clbNhanVien1.setText("    Nhân viên        ");
+        menu.add(clbNhanVien1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
+
+        clbKhachHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhachHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
+        clbKhachHang1.setText("    Khách hàng     ");
+        menu.add(clbKhachHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
+
+        clbNhaCungCap1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhaCungCap1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
+        clbNhaCungCap1.setText("    Nhà cung cấp  ");
+        menu.add(clbNhaCungCap1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
+
+        clbSanPham1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbSanPham1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
+        clbSanPham1.setText("    Sản phẩm         ");
+        menu.add(clbSanPham1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
+
+        clbChiTietSanPham1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbChiTietSanPham1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
+        clbChiTietSanPham1.setText("    Thuộc tính        ");
+        menu.add(clbChiTietSanPham1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
+
+        clbNhapHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhapHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
+        clbNhapHang1.setText("    Nhập hàng        ");
+        menu.add(clbNhapHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
+
+        clbKhuyenMai1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhuyenMai1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
+        clbKhuyenMai1.setText("    Khuyến mãi       ");
+        menu.add(clbKhuyenMai1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
+
+        clbThongKe1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThongKe1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
+        clbThongKe1.setText("    Thống kê           ");
+        clbThongKe1.setToolTipText("");
+        menu.add(clbThongKe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
+
+        clbThoat1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThoat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
+        clbThoat1.setText("    Thoát                 ");
+        menu.add(clbThoat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
+
+        getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
+
+        jPanel2.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel2.setForeground(new java.awt.Color(240, 62, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1500, 80));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 1460, 730));
+
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         menuPanel1.setBackground(new java.awt.Color(0, 0, 0));
         menuPanel1.setPreferredSize(new java.awt.Dimension(80, 850));
         menuPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         menuPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 50, 50));
         menuPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, -1));
         menuPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, -1));
@@ -86,6 +244,11 @@ public class main extends javax.swing.JFrame {
 
         clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
+        clbTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbTrangChuMouseClicked(evt);
+            }
+        });
         menuPanel1.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 55));
 
         clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -138,7 +301,9 @@ public class main extends javax.swing.JFrame {
         clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
         menuPanel1.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, 55));
 
-        getContentPane().add(menuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
+        jPanel1.add(menuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 810));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -172,13 +337,23 @@ public class main extends javax.swing.JFrame {
         });
         jPanel3.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 220, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 80));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(230, 230, 230));
-        jPanel2.setForeground(new java.awt.Color(240, 62, 0));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1500, 80));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 1460, 730));
+        jButton2.setText("jButton1");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1620, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,6 +361,34 @@ public class main extends javax.swing.JFrame {
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_myButton1ActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+slideMenu(0);   
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void clbTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbTrangChuMouseClicked
+        slideMenu(-menuWidth);
+    }//GEN-LAST:event_clbTrangChuMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                slideMenu(0);   
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        slideMenu(-menuWidth);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
+       
+    }//GEN-LAST:event_menuMouseClicked
+
+    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
+         slideMenu(-menuWidth);
+    }//GEN-LAST:event_menuMouseExited
 
     /**
      * @param args the command line arguments
@@ -225,21 +428,38 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private controller.CustomLabel clbChiTietSanPham;
+    private controller.CustomLabel clbChiTietSanPham1;
     private controller.CustomLabel clbDoiHang;
+    private controller.CustomLabel clbDoiHang1;
     private controller.CustomLabel clbGiaoDich;
+    private controller.CustomLabel clbGiaoDich1;
     private controller.CustomLabel clbHoaDon;
+    private controller.CustomLabel clbHoaDon1;
     private controller.CustomLabel clbKhachHang;
+    private controller.CustomLabel clbKhachHang1;
     private controller.CustomLabel clbKhuyenMai;
+    private controller.CustomLabel clbKhuyenMai1;
     private controller.CustomLabel clbNhaCungCap;
+    private controller.CustomLabel clbNhaCungCap1;
     private controller.CustomLabel clbNhanVien;
+    private controller.CustomLabel clbNhanVien1;
     private controller.CustomLabel clbNhapHang;
+    private controller.CustomLabel clbNhapHang1;
     private controller.CustomLabel clbSanPham;
+    private controller.CustomLabel clbSanPham1;
     private controller.CustomLabel clbThoat;
+    private controller.CustomLabel clbThoat1;
     private controller.CustomLabel clbThongKe;
+    private controller.CustomLabel clbThongKe1;
     private controller.CustomLabel clbTrangChu;
+    private controller.CustomLabel clbTrangChu1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -250,6 +470,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private controller.WhiteLabel lblAnhDaiDien;
+    private javax.swing.JPanel menu;
     private javax.swing.JPanel menuPanel1;
     private controller.BlackButton myButton1;
     // End of variables declaration//GEN-END:variables
