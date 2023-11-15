@@ -1,55 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package main;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
-
 /**
  *
  * @author Ly Tinh Nhiem
  */
 public class main extends javax.swing.JFrame {
 
-    private javax.swing.Timer slideTimer;
-    private int menuWidth = 250; // Độ rộng của menu
-    private int slideSpeed = 50; // Tốc độ của hiệu ứng
-    private int targetX = 0; // Vị trí x mục tiêu của menu
+
 
     public main() {
         initComponents();
-        initSlideAnimation();
-    }
-    
-    
-   private void initSlideAnimation() {
-        slideTimer = new Timer(20, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (menu.getX() < targetX) {
-                    // Nếu menu cần di chuyển về bên phải
-                    menu.setLocation(menu.getX() + slideSpeed, menu.getY());
-                } else if (menu.getX() > targetX) {
-                    // Nếu menu cần di chuyển về bên trái
-                    menu.setLocation(menu.getX() - slideSpeed, menu.getY());
-                }
-
-                if (menu.getX() == targetX) {
-                    // Nếu menu đã đạt được vị trí đích
-                    slideTimer.stop();
-                }
-            }
-        });
-    }
-   
-   
-    private void slideMenu(int targetX) {
-        // Thiết lập vị trí x mục tiêu và bắt đầu hiệu ứng
-        this.targetX = targetX;
-        slideTimer.start();
+        setExtendedState(MAXIMIZED_BOTH);
+        setResizable(false);
     }
 
     /**
@@ -64,54 +25,6 @@ public class main extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        clbTrangChu1 = new controller.CustomLabel();
-        clbGiaoDich1 = new controller.CustomLabel();
-        clbHoaDon1 = new controller.CustomLabel();
-        clbDoiHang1 = new controller.CustomLabel();
-        clbNhanVien1 = new controller.CustomLabel();
-        clbKhachHang1 = new controller.CustomLabel();
-        clbNhaCungCap1 = new controller.CustomLabel();
-        clbSanPham1 = new controller.CustomLabel();
-        clbChiTietSanPham1 = new controller.CustomLabel();
-        clbNhapHang1 = new controller.CustomLabel();
-        clbKhuyenMai1 = new controller.CustomLabel();
-        clbThongKe1 = new controller.CustomLabel();
-        clbThoat1 = new controller.CustomLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        whiteLabel2 = new controller.WhiteLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        whiteLabel5 = new controller.WhiteLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        whiteLabel6 = new controller.WhiteLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        whiteLabel7 = new controller.WhiteLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        menuPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         clbTrangChu = new controller.CustomLabel();
         clbGiaoDich = new controller.CustomLabel();
         clbHoaDon = new controller.CustomLabel();
@@ -125,11 +38,18 @@ public class main extends javax.swing.JFrame {
         clbKhuyenMai = new controller.CustomLabel();
         clbThongKe = new controller.CustomLabel();
         clbThoat = new controller.CustomLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
+        GiaoDien = new javax.swing.JPanel();
+        trangChu1 = new view.TrangChu();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -143,355 +63,153 @@ public class main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1550, 870));
+        setAlwaysOnTop(true);
+        setMaximumSize(new java.awt.Dimension(1550, 830));
+        setMinimumSize(new java.awt.Dimension(1550, 830));
+        setPreferredSize(new java.awt.Dimension(1550, 830));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu.setBackground(new java.awt.Color(0, 0, 0));
         menu.setMaximumSize(new java.awt.Dimension(250, 810));
         menu.setMinimumSize(new java.awt.Dimension(250, 810));
         menu.setPreferredSize(new java.awt.Dimension(250, 810));
-        menu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                menuMouseExited(evt);
-            }
-        });
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logocokhung.png"))); // NOI18N
         jLabel4.setText("jLabel1");
-        menu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, 50));
+        menu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 80));
 
-        clbTrangChu1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        clbTrangChu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
-        clbTrangChu1.setText("    Trang chủ             ");
-        menu.add(clbTrangChu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
+        clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
+        clbTrangChu.setText("    Trang chủ             ");
+        menu.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
 
-        clbGiaoDich1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbGiaoDich1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
-        clbGiaoDich1.setText("    Giao dịch         ");
-        menu.add(clbGiaoDich1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
+        clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
+        clbGiaoDich.setText("    Giao dịch         ");
+        menu.add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
 
-        clbHoaDon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbHoaDon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
-        clbHoaDon1.setText("    Hóa đơn          ");
-        menu.add(clbHoaDon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
+        clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
+        clbHoaDon.setText("    Hóa đơn          ");
+        menu.add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
 
-        clbDoiHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbDoiHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
-        clbDoiHang1.setText("    Đổi hàng          ");
-        clbDoiHang1.setAutoscrolls(true);
-        menu.add(clbDoiHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
+        clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
+        clbDoiHang.setText("    Đổi hàng          ");
+        clbDoiHang.setAutoscrolls(true);
+        menu.add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
 
-        clbNhanVien1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhanVien1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
-        clbNhanVien1.setText("    Nhân viên        ");
-        menu.add(clbNhanVien1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
+        clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
+        clbNhanVien.setText("    Nhân viên        ");
+        menu.add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
 
-        clbKhachHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhachHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
-        clbKhachHang1.setText("    Khách hàng     ");
-        menu.add(clbKhachHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
+        clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
+        clbKhachHang.setText("    Khách hàng     ");
+        menu.add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
 
-        clbNhaCungCap1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhaCungCap1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
-        clbNhaCungCap1.setText("    Nhà cung cấp  ");
-        menu.add(clbNhaCungCap1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
+        clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
+        clbNhaCungCap.setText("    Nhà cung cấp  ");
+        menu.add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
 
-        clbSanPham1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbSanPham1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
-        clbSanPham1.setText("    Sản phẩm         ");
-        menu.add(clbSanPham1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
+        clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
+        clbSanPham.setText("    Sản phẩm         ");
+        menu.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
 
-        clbChiTietSanPham1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbChiTietSanPham1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
-        clbChiTietSanPham1.setText("    Thuộc tính        ");
-        menu.add(clbChiTietSanPham1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
+        clbChiTietSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbChiTietSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
+        clbChiTietSanPham.setText("    Thuộc tính        ");
+        menu.add(clbChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
 
-        clbNhapHang1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhapHang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
-        clbNhapHang1.setText("    Nhập hàng        ");
-        menu.add(clbNhapHang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
+        clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
+        clbNhapHang.setText("    Nhập hàng        ");
+        menu.add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
 
-        clbKhuyenMai1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhuyenMai1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
-        clbKhuyenMai1.setText("    Khuyến mãi       ");
-        menu.add(clbKhuyenMai1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
+        clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
+        clbKhuyenMai.setText("    Khuyến mãi       ");
+        menu.add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
 
-        clbThongKe1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThongKe1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
-        clbThongKe1.setText("    Thống kê           ");
-        clbThongKe1.setToolTipText("");
-        menu.add(clbThongKe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
+        clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
+        clbThongKe.setText("    Thống kê           ");
+        clbThongKe.setToolTipText("");
+        menu.add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
 
-        clbThoat1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThoat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
-        clbThoat1.setText("    Thoát                 ");
-        menu.add(clbThoat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
+        clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
+        clbThoat.setText("    Thoát                 ");
+        menu.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Bức phá giới hạn");
-        menu.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
-
-        jLabel19.setText("jLabel19");
-        menu.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+        menu.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("ENDLESS");
-        menu.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        menu.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, -1));
+
+        jPanel1.setBackground(new java.awt.Color(29, 36, 46));
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Coppyright © Endless");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jLabel1))
+        );
+
+        menu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 250, 20));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        menu.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 50));
 
         getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
 
-        jPanel2.setBackground(new java.awt.Color(230, 230, 230));
-        jPanel2.setForeground(new java.awt.Color(240, 62, 0));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1500, 80));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, null));
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 255, 153), null));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, null));
-        jLabel5.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel5.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel5.setPreferredSize(new java.awt.Dimension(50, 50));
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 70, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("96");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 20, 20));
-
-        jLabel9.setText("Hóa đơn");
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 50, -1));
-
-        whiteLabel2.setBackground(new java.awt.Color(153, 255, 153));
-        whiteLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 255, 153), null));
-        whiteLabel2.setText("                   Hóa đơn hôm nay");
-        whiteLabel2.setColorClick(new java.awt.Color(153, 255, 102));
-        jPanel6.add(whiteLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 30));
-
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 51), null));
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, null));
-        jLabel17.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel17.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel17.setPreferredSize(new java.awt.Dimension(50, 50));
-        jPanel11.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 70, -1));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setText("130,000,000");
-        jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 103, 95, -1));
-
-        jLabel22.setText("VND");
-        jPanel11.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 167, 37, -1));
-
-        whiteLabel5.setBackground(new java.awt.Color(255, 255, 153));
-        whiteLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 102), null));
-        whiteLabel5.setText("                    Doanh thu hôm nay");
-        jPanel11.add(whiteLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 30));
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 204, 51), null));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, null));
-        jLabel23.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel23.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel23.setPreferredSize(new java.awt.Dimension(50, 50));
-        jPanel12.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 70, -1));
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel24.setText("300");
-        jPanel12.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 30, -1));
-
-        jLabel25.setText("Đơn nhập");
-        jPanel12.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 60, -1));
-
-        whiteLabel6.setBackground(new java.awt.Color(255, 204, 51));
-        whiteLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 204, 51), null));
-        whiteLabel6.setText("                    Doanh thu hôm nay");
-        jPanel12.add(whiteLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 30));
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 204, 255), null));
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, null));
-        jLabel26.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel26.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel26.setPreferredSize(new java.awt.Dimension(50, 50));
-        jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 70, -1));
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel27.setText("130");
-        jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 103, 50, -1));
-
-        jLabel28.setText("Sản phẩm");
-        jPanel13.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 60, -1));
-
-        whiteLabel7.setBackground(new java.awt.Color(102, 204, 255));
-        whiteLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 204, 255), null));
-        whiteLabel7.setText("             Sản phẩm đã bán hôm nay");
-        jPanel13.add(whiteLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 30));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(61, 61, 61))
-        );
-
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 1230, 280));
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1226, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 1230, 340));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 1460, 730));
-
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
-            }
-        });
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        menuPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        menuPanel1.setPreferredSize(new java.awt.Dimension(80, 850));
-        menuPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logox75.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        menuPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 50, 50));
-        menuPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, -1));
-        menuPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, -1));
-        menuPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, -1));
-        menuPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, -1));
-        menuPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, -1));
-        menuPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, -1));
-
-        clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
-        clbTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbTrangChuMouseClicked(evt);
-            }
-        });
-        menuPanel1.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 55));
-
-        clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 80, 55));
-
-        clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 80, 55));
-
-        clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
-        clbDoiHang.setAutoscrolls(true);
-        menuPanel1.add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 80, 55));
-
-        clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 55));
-
-        clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
-        menuPanel1.add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 80, 55));
-
-        clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 80, 55));
-
-        clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 80, 55));
-
-        clbChiTietSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbChiTietSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 80, 55));
-
-        clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 80, 55));
-
-        clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 80, 55));
-
-        clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
-        clbThongKe.setToolTipText("");
-        menuPanel1.add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 80, 55));
-
-        clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
-        menuPanel1.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 80, 55));
-
-        jPanel1.add(menuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 810));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 810));
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.setPreferredSize(new java.awt.Dimension(1800, 80));
+        jPanel3.setMaximumSize(new java.awt.Dimension(1530, 80));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1530, 80));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1530, 80));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Username");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 20, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 20, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Role : ");
         jLabel3.setToolTipText("");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 40, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 40, 130, -1));
 
         lblAnhDaiDien.setText(" ");
         lblAnhDaiDien.setRadius(40);
@@ -509,34 +227,40 @@ public class main extends javax.swing.JFrame {
         });
         jPanel3.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 220, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1620, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 80));
+
+        GiaoDien.setMaximumSize(new java.awt.Dimension(1280, 730));
+        GiaoDien.setMinimumSize(new java.awt.Dimension(1280, 730));
+        GiaoDien.setPreferredSize(new java.awt.Dimension(1280, 730));
+
+        trangChu1.setMaximumSize(new java.awt.Dimension(1280, 730));
+        trangChu1.setMinimumSize(new java.awt.Dimension(1280, 730));
+        trangChu1.setPreferredSize(new java.awt.Dimension(1280, 730));
+
+        javax.swing.GroupLayout GiaoDienLayout = new javax.swing.GroupLayout(GiaoDien);
+        GiaoDien.setLayout(GiaoDienLayout);
+        GiaoDienLayout.setHorizontalGroup(
+            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GiaoDienLayout.createSequentialGroup()
+                .addComponent(trangChu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        GiaoDienLayout.setVerticalGroup(
+            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GiaoDienLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(trangChu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1280, 730));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_myButton1ActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-slideMenu(0);   
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void clbTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbTrangChuMouseClicked
-        slideMenu(-menuWidth);
-    }//GEN-LAST:event_clbTrangChuMouseClicked
-
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1MouseClicked
-
-    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
-       
-    }//GEN-LAST:event_menuMouseClicked
-
-    private void menuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseExited
-         slideMenu(-menuWidth);
-    }//GEN-LAST:event_menuMouseExited
 
     /**
      * @param args the command line arguments
@@ -552,16 +276,24 @@ slideMenu(0);
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -575,74 +307,33 @@ slideMenu(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel GiaoDien;
     private controller.CustomLabel clbChiTietSanPham;
-    private controller.CustomLabel clbChiTietSanPham1;
     private controller.CustomLabel clbDoiHang;
-    private controller.CustomLabel clbDoiHang1;
     private controller.CustomLabel clbGiaoDich;
-    private controller.CustomLabel clbGiaoDich1;
     private controller.CustomLabel clbHoaDon;
-    private controller.CustomLabel clbHoaDon1;
     private controller.CustomLabel clbKhachHang;
-    private controller.CustomLabel clbKhachHang1;
     private controller.CustomLabel clbKhuyenMai;
-    private controller.CustomLabel clbKhuyenMai1;
     private controller.CustomLabel clbNhaCungCap;
-    private controller.CustomLabel clbNhaCungCap1;
     private controller.CustomLabel clbNhanVien;
-    private controller.CustomLabel clbNhanVien1;
     private controller.CustomLabel clbNhapHang;
-    private controller.CustomLabel clbNhapHang1;
     private controller.CustomLabel clbSanPham;
-    private controller.CustomLabel clbSanPham1;
     private controller.CustomLabel clbThoat;
-    private controller.CustomLabel clbThoat1;
     private controller.CustomLabel clbThongKe;
-    private controller.CustomLabel clbThongKe1;
     private controller.CustomLabel clbTrangChu;
-    private controller.CustomLabel clbTrangChu1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private controller.WhiteLabel lblAnhDaiDien;
     private javax.swing.JPanel menu;
-    private javax.swing.JPanel menuPanel1;
     private controller.BlackButton myButton1;
-    private controller.WhiteLabel whiteLabel2;
-    private controller.WhiteLabel whiteLabel5;
-    private controller.WhiteLabel whiteLabel6;
-    private controller.WhiteLabel whiteLabel7;
+    private view.TrangChu trangChu1;
     // End of variables declaration//GEN-END:variables
 }
