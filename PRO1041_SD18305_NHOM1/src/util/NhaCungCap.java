@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view;
+package util;
 
 /**
  *
  * @author Ly Tinh Nhiem
  */
-public class MauSac extends javax.swing.JPanel {
+public class NhaCungCap extends javax.swing.JPanel {
 
     /**
-     * Creates new form MauSac
+     * Creates new form NhaCungCap
      */
-    public MauSac() {
+    public NhaCungCap() {
         initComponents();
     }
 

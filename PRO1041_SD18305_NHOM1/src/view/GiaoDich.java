@@ -546,7 +546,7 @@ public class GiaoDich extends javax.swing.JPanel {
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1))
         );
         jPanel9Layout.setVerticalGroup(
@@ -563,7 +563,7 @@ public class GiaoDich extends javax.swing.JPanel {
                 .addGap(39, 39, 39))
         );
 
-        add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 499, -1, 220));
+        add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 499, 940, 220));
 
         jPanel13.setBackground(new java.awt.Color(176, 176, 176));
         jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
