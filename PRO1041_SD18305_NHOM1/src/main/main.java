@@ -51,9 +51,9 @@ public class main extends javax.swing.JFrame {
     }
 
     public void changeTab(JPanel pnl) {
-        GiaoDien.removeAll();   
-        GiaoDien.setLayout(new AbsoluteLayout()); 
-        AbsoluteConstraints constraints = new AbsoluteConstraints(0, 0); 
+        GiaoDien.removeAll();
+        GiaoDien.setLayout(new AbsoluteLayout());
+        AbsoluteConstraints constraints = new AbsoluteConstraints(0, 0);
         GiaoDien.add(pnl, constraints);
     }
 
@@ -62,8 +62,6 @@ public class main extends javax.swing.JFrame {
             case 0:
                 changeTab(new TrangChu());
                 setTabColor(clbTrangChu);
-
-                JOptionPane.showMessageDialog(this, "đã thêm");
                 break;
             case 1:
                 changeTab(new GiaoDich());
@@ -220,58 +218,113 @@ public class main extends javax.swing.JFrame {
         clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
         clbHoaDon.setText("    Hóa đơn          ");
+        clbHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbHoaDonMouseClicked(evt);
+            }
+        });
         menu.add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
 
         clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
         clbDoiHang.setText("    Đổi hàng          ");
         clbDoiHang.setAutoscrolls(true);
+        clbDoiHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbDoiHangMouseClicked(evt);
+            }
+        });
         menu.add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
 
         clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
         clbNhanVien.setText("    Nhân viên        ");
+        clbNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbNhanVienMouseClicked(evt);
+            }
+        });
         menu.add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
 
         clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
         clbKhachHang.setText("    Khách hàng     ");
+        clbKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbKhachHangMouseClicked(evt);
+            }
+        });
         menu.add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
 
         clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
         clbNhaCungCap.setText("    Nhà cung cấp  ");
+        clbNhaCungCap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbNhaCungCapMouseClicked(evt);
+            }
+        });
         menu.add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
 
         clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
         clbSanPham.setText("    Sản phẩm         ");
+        clbSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbSanPhamMouseClicked(evt);
+            }
+        });
         menu.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
 
         clbThuocTinh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbThuocTinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
         clbThuocTinh.setText("    Thuộc tính        ");
+        clbThuocTinh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbThuocTinhMouseClicked(evt);
+            }
+        });
         menu.add(clbThuocTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
 
         clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
         clbNhapHang.setText("    Nhập hàng        ");
+        clbNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbNhapHangMouseClicked(evt);
+            }
+        });
         menu.add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
 
         clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
         clbKhuyenMai.setText("    Khuyến mãi       ");
+        clbKhuyenMai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbKhuyenMaiMouseClicked(evt);
+            }
+        });
         menu.add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
 
         clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
         clbThongKe.setText("    Thống kê           ");
         clbThongKe.setToolTipText("");
+        clbThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbThongKeMouseClicked(evt);
+            }
+        });
         menu.add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
 
         clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
         clbThoat.setText("    Thoát                 ");
+        clbThoat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbThoatMouseClicked(evt);
+            }
+        });
         menu.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
@@ -362,7 +415,8 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
-        // TODO add your handling code here:
+        location =12;
+        setTabSelect(location);
     }//GEN-LAST:event_myButton1ActionPerformed
 
     private void clbTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbTrangChuMouseClicked
@@ -373,8 +427,62 @@ public class main extends javax.swing.JFrame {
     private void clbGiaoDichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbGiaoDichMouseClicked
         location = 1;
         setTabSelect(location);
-        JOptionPane.showMessageDialog(this, "Chye");
     }//GEN-LAST:event_clbGiaoDichMouseClicked
+
+    private void clbHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbHoaDonMouseClicked
+        location = 2;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbHoaDonMouseClicked
+
+    private void clbDoiHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbDoiHangMouseClicked
+        location = 3;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbDoiHangMouseClicked
+
+    private void clbNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhanVienMouseClicked
+        location = 4;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbNhanVienMouseClicked
+
+    private void clbKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbKhachHangMouseClicked
+        location = 5;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbKhachHangMouseClicked
+
+    private void clbNhaCungCapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhaCungCapMouseClicked
+        location = 6;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbNhaCungCapMouseClicked
+
+    private void clbSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbSanPhamMouseClicked
+        location = 7;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbSanPhamMouseClicked
+
+    private void clbThuocTinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThuocTinhMouseClicked
+        location = 8;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbThuocTinhMouseClicked
+
+    private void clbNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhapHangMouseClicked
+        location =9;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbNhapHangMouseClicked
+
+    private void clbKhuyenMaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbKhuyenMaiMouseClicked
+        location =10;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbKhuyenMaiMouseClicked
+
+    private void clbThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThongKeMouseClicked
+        location =11;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbThongKeMouseClicked
+
+    private void clbThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThoatMouseClicked
+        location =12;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbThoatMouseClicked
 
     /**
      * @param args the command line arguments
