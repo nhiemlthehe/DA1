@@ -16,7 +16,7 @@ public class CustomLabel extends JLabel {
 
     public CustomLabel() {
         setBackground(defaultBackgroundColor);
-        setOpaque(true); // Đặt thuộc tính opaque thành true để vẽ nền
+        setOpaque(true);
         setForeground(Color.WHITE);
         setFont(new Font("Arial", Font.BOLD, 20));
 

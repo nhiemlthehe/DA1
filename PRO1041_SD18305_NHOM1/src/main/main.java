@@ -1,16 +1,120 @@
 package main;
+
+import controller.CustomLabel;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+import view.DoiTraHang;
+import view.GiaoDich;
+import view.HoaDon;
+import view.KhachHang;
+import view.KhuyenMai;
+import view.NhaCungCap;
+import view.NhanVien;
+import view.NhapHang;
+import view.SanPham;
+import view.TaiKhoan;
+import view.ThongKe;
+import view.ThuocTinh;
+import view.TrangChu;
+
 /**
  *
  * @author Ly Tinh Nhiem
  */
 public class main extends javax.swing.JFrame {
 
-
+    int location = 0;
 
     public main() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         setResizable(false);
+        setTabSelect(location);
+    }
+
+    public void setTabColor(CustomLabel cbl) {
+        cbl.setBackground(new Color(172, 44, 0));
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                SwingUtilities.invokeLater(() -> setBackground(new Color(172, 44, 0)));
+            }
+        });
+    }
+
+    public void changeTab(JPanel pnl) {
+        GiaoDien.removeAll();   
+        GiaoDien.setLayout(new AbsoluteLayout()); 
+        AbsoluteConstraints constraints = new AbsoluteConstraints(0, 0); 
+        GiaoDien.add(pnl, constraints);
+    }
+
+    public void setTabSelect(int location) {
+        switch (location) {
+            case 0:
+                changeTab(new TrangChu());
+                setTabColor(clbTrangChu);
+
+                JOptionPane.showMessageDialog(this, "đã thêm");
+                break;
+            case 1:
+                changeTab(new GiaoDich());
+                setTabColor(clbGiaoDich);
+                break;
+            case 2:
+                changeTab(new HoaDon());
+                setTabColor(clbHoaDon);
+                break;
+            case 3:
+                changeTab(new DoiTraHang());
+                setTabColor(clbDoiHang);
+                break;
+            case 4:
+                changeTab(new NhanVien());
+                setTabColor(clbNhanVien);
+                break;
+            case 5:
+                changeTab(new NhaCungCap());
+                setTabColor(clbNhaCungCap);
+                break;
+            case 6:
+                changeTab(new KhachHang());
+                setTabColor(clbKhachHang);
+                break;
+            case 7:
+                changeTab(new SanPham());
+                setTabColor(clbSanPham);
+                break;
+            case 8:
+                changeTab(new ThuocTinh());
+                setTabColor(clbThuocTinh);
+                break;
+            case 9:
+                changeTab(new NhapHang());
+                setTabColor(clbNhapHang);
+                break;
+            case 10:
+                changeTab(new KhuyenMai());
+                setTabColor(clbKhuyenMai);
+                break;
+            case 11:
+                changeTab(new ThongKe());
+                setTabColor(clbThongKe);
+                break;
+            case 12:
+                changeTab(new TaiKhoan());
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -23,6 +127,7 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel4 = new javax.swing.JPanel();
+        GiaoDien = new javax.swing.JPanel();
         menu = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         clbTrangChu = new controller.CustomLabel();
@@ -33,7 +138,7 @@ public class main extends javax.swing.JFrame {
         clbKhachHang = new controller.CustomLabel();
         clbNhaCungCap = new controller.CustomLabel();
         clbSanPham = new controller.CustomLabel();
-        clbChiTietSanPham = new controller.CustomLabel();
+        clbThuocTinh = new controller.CustomLabel();
         clbNhapHang = new controller.CustomLabel();
         clbKhuyenMai = new controller.CustomLabel();
         clbThongKe = new controller.CustomLabel();
@@ -48,8 +153,6 @@ public class main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
-        GiaoDien = new javax.swing.JPanel();
-        trangChu1 = new view.TrangChu();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -64,10 +167,25 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(1550, 830));
         setMinimumSize(new java.awt.Dimension(1550, 830));
-        setPreferredSize(new java.awt.Dimension(1550, 830));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        GiaoDien.setMaximumSize(new java.awt.Dimension(1280, 730));
+        GiaoDien.setMinimumSize(new java.awt.Dimension(1280, 730));
+        GiaoDien.setPreferredSize(new java.awt.Dimension(1280, 730));
+
+        javax.swing.GroupLayout GiaoDienLayout = new javax.swing.GroupLayout(GiaoDien);
+        GiaoDien.setLayout(GiaoDienLayout);
+        GiaoDienLayout.setHorizontalGroup(
+            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1300, Short.MAX_VALUE)
+        );
+        GiaoDienLayout.setVerticalGroup(
+            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1300, 740));
 
         menu.setBackground(new java.awt.Color(0, 0, 0));
         menu.setMaximumSize(new java.awt.Dimension(250, 810));
@@ -82,11 +200,21 @@ public class main extends javax.swing.JFrame {
         clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
         clbTrangChu.setText("    Trang chủ             ");
+        clbTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbTrangChuMouseClicked(evt);
+            }
+        });
         menu.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
 
         clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
         clbGiaoDich.setText("    Giao dịch         ");
+        clbGiaoDich.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clbGiaoDichMouseClicked(evt);
+            }
+        });
         menu.add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
 
         clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -120,10 +248,10 @@ public class main extends javax.swing.JFrame {
         clbSanPham.setText("    Sản phẩm         ");
         menu.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
 
-        clbChiTietSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbChiTietSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
-        clbChiTietSanPham.setText("    Thuộc tính        ");
-        menu.add(clbChiTietSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
+        clbThuocTinh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clbThuocTinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
+        clbThuocTinh.setText("    Thuộc tính        ");
+        menu.add(clbThuocTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
 
         clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
@@ -172,11 +300,11 @@ public class main extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        menu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 250, 20));
+        menu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 250, 30));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -227,32 +355,7 @@ public class main extends javax.swing.JFrame {
         });
         jPanel3.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, 220, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 80));
-
-        GiaoDien.setMaximumSize(new java.awt.Dimension(1280, 730));
-        GiaoDien.setMinimumSize(new java.awt.Dimension(1280, 730));
-        GiaoDien.setPreferredSize(new java.awt.Dimension(1280, 730));
-
-        trangChu1.setMaximumSize(new java.awt.Dimension(1280, 730));
-        trangChu1.setMinimumSize(new java.awt.Dimension(1280, 730));
-        trangChu1.setPreferredSize(new java.awt.Dimension(1280, 730));
-
-        javax.swing.GroupLayout GiaoDienLayout = new javax.swing.GroupLayout(GiaoDien);
-        GiaoDien.setLayout(GiaoDienLayout);
-        GiaoDienLayout.setHorizontalGroup(
-            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GiaoDienLayout.createSequentialGroup()
-                .addComponent(trangChu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        GiaoDienLayout.setVerticalGroup(
-            GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GiaoDienLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(trangChu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1280, 730));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 80));
 
         pack();
         setLocationRelativeTo(null);
@@ -261,6 +364,17 @@ public class main extends javax.swing.JFrame {
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_myButton1ActionPerformed
+
+    private void clbTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbTrangChuMouseClicked
+        location = 0;
+        setTabSelect(location);
+    }//GEN-LAST:event_clbTrangChuMouseClicked
+
+    private void clbGiaoDichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbGiaoDichMouseClicked
+        location = 1;
+        setTabSelect(location);
+        JOptionPane.showMessageDialog(this, "Chye");
+    }//GEN-LAST:event_clbGiaoDichMouseClicked
 
     /**
      * @param args the command line arguments
@@ -308,7 +422,6 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GiaoDien;
-    private controller.CustomLabel clbChiTietSanPham;
     private controller.CustomLabel clbDoiHang;
     private controller.CustomLabel clbGiaoDich;
     private controller.CustomLabel clbHoaDon;
@@ -320,6 +433,7 @@ public class main extends javax.swing.JFrame {
     private controller.CustomLabel clbSanPham;
     private controller.CustomLabel clbThoat;
     private controller.CustomLabel clbThongKe;
+    private controller.CustomLabel clbThuocTinh;
     private controller.CustomLabel clbTrangChu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
@@ -334,6 +448,5 @@ public class main extends javax.swing.JFrame {
     private controller.WhiteLabel lblAnhDaiDien;
     private javax.swing.JPanel menu;
     private controller.BlackButton myButton1;
-    private view.TrangChu trangChu1;
     // End of variables declaration//GEN-END:variables
 }
