@@ -49,7 +49,7 @@ public class main extends javax.swing.JFrame {
         lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
         GiaoDien = new javax.swing.JPanel();
-        trangChu1 = new view.TrangChu();
+        thuocTinh1 = new view.ThuocTinh();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -64,9 +64,7 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setMaximumSize(new java.awt.Dimension(1550, 830));
         setMinimumSize(new java.awt.Dimension(1550, 830));
-        setPreferredSize(new java.awt.Dimension(1550, 830));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu.setBackground(new java.awt.Color(0, 0, 0));
@@ -233,23 +231,19 @@ public class main extends javax.swing.JFrame {
         GiaoDien.setMinimumSize(new java.awt.Dimension(1280, 730));
         GiaoDien.setPreferredSize(new java.awt.Dimension(1280, 730));
 
-        trangChu1.setMaximumSize(new java.awt.Dimension(1280, 730));
-        trangChu1.setMinimumSize(new java.awt.Dimension(1280, 730));
-        trangChu1.setPreferredSize(new java.awt.Dimension(1280, 730));
-
         javax.swing.GroupLayout GiaoDienLayout = new javax.swing.GroupLayout(GiaoDien);
         GiaoDien.setLayout(GiaoDienLayout);
         GiaoDienLayout.setHorizontalGroup(
             GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GiaoDienLayout.createSequentialGroup()
-                .addComponent(trangChu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GiaoDienLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(thuocTinh1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         GiaoDienLayout.setVerticalGroup(
             GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GiaoDienLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(trangChu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(thuocTinh1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1280, 730));
@@ -334,6 +328,6 @@ public class main extends javax.swing.JFrame {
     private controller.WhiteLabel lblAnhDaiDien;
     private javax.swing.JPanel menu;
     private controller.BlackButton myButton1;
-    private view.TrangChu trangChu1;
+    private view.ThuocTinh thuocTinh1;
     // End of variables declaration//GEN-END:variables
 }
