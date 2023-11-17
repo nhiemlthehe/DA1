@@ -1,6 +1,7 @@
 package main;
 
 import controller.CustomLabel;
+import controller.MenuPanel;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -38,16 +39,27 @@ public class main extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setResizable(false);
         setTabSelect(location);
+        addMenuPanel();
+        
     }
 
-    public void setTabColor(CustomLabel cbl) {
-        cbl.setBackground(new Color(172, 44, 0));
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                SwingUtilities.invokeLater(() -> setBackground(new Color(172, 44, 0)));
-            }
-        });
+    public void addMenuPanel() {
+        pnlMenu.setLayout(new AbsoluteLayout());
+        int k = 0;
+        for (int i = 0; i < 13; i++) {
+            MenuPanel menutab = new MenuPanel(i, location);
+            int finalI = i;
+            menutab.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    location = finalI;
+                    setTabSelect(finalI);
+                }
+            });
+
+            pnlMenu.add(menutab, new AbsoluteConstraints(0, k));
+            k += 55;
+        }
     }
 
     public void changeTab(JPanel pnl) {
@@ -61,53 +73,44 @@ public class main extends javax.swing.JFrame {
         switch (location) {
             case 0:
                 changeTab(new TrangChu());
-                setTabColor(clbTrangChu);
                 break;
             case 1:
                 changeTab(new GiaoDich());
-                setTabColor(clbGiaoDich);
                 break;
             case 2:
                 changeTab(new HoaDon());
-                setTabColor(clbHoaDon);
                 break;
             case 3:
                 changeTab(new DoiTraHang());
-                setTabColor(clbDoiHang);
                 break;
             case 4:
                 changeTab(new NhanVien());
-                setTabColor(clbNhanVien);
                 break;
             case 5:
                 changeTab(new NhaCungCap());
-                setTabColor(clbNhaCungCap);
                 break;
             case 6:
                 changeTab(new KhachHang());
-                setTabColor(clbKhachHang);
                 break;
             case 7:
                 changeTab(new SanPham());
-                setTabColor(clbSanPham);
                 break;
             case 8:
                 changeTab(new ThuocTinh());
-                setTabColor(clbThuocTinh);
                 break;
             case 9:
                 changeTab(new NhapHang());
-                setTabColor(clbNhapHang);
                 break;
             case 10:
                 changeTab(new KhuyenMai());
-                setTabColor(clbKhuyenMai);
                 break;
             case 11:
                 changeTab(new ThongKe());
-                setTabColor(clbThongKe);
                 break;
             case 12:
+                changeTab(new TaiKhoan());
+                break;
+            case 13:
                 changeTab(new TaiKhoan());
                 break;
             default:
@@ -126,31 +129,16 @@ public class main extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         GiaoDien = new javax.swing.JPanel();
-        menu = new javax.swing.JPanel();
+        logo = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        clbTrangChu = new controller.CustomLabel();
-        clbGiaoDich = new controller.CustomLabel();
-        clbHoaDon = new controller.CustomLabel();
-        clbDoiHang = new controller.CustomLabel();
-        clbNhanVien = new controller.CustomLabel();
-        clbKhachHang = new controller.CustomLabel();
-        clbNhaCungCap = new controller.CustomLabel();
-        clbSanPham = new controller.CustomLabel();
-        clbThuocTinh = new controller.CustomLabel();
-        clbNhapHang = new controller.CustomLabel();
-        clbKhuyenMai = new controller.CustomLabel();
-        clbThongKe = new controller.CustomLabel();
-        clbThoat = new controller.CustomLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblAnhDaiDien = new controller.WhiteLabel();
         myButton1 = new controller.BlackButton();
+        pnlMenu = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -180,199 +168,32 @@ public class main extends javax.swing.JFrame {
         );
         GiaoDienLayout.setVerticalGroup(
             GiaoDienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1300, 740));
+        getContentPane().add(GiaoDien, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 1300, 730));
 
-        menu.setBackground(new java.awt.Color(0, 0, 0));
-        menu.setMaximumSize(new java.awt.Dimension(250, 810));
-        menu.setMinimumSize(new java.awt.Dimension(250, 810));
-        menu.setPreferredSize(new java.awt.Dimension(250, 810));
-        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        logo.setBackground(new java.awt.Color(0, 0, 0));
+        logo.setMaximumSize(new java.awt.Dimension(250, 810));
+        logo.setMinimumSize(new java.awt.Dimension(250, 810));
+        logo.setPreferredSize(new java.awt.Dimension(250, 810));
+        logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logocokhung.png"))); // NOI18N
         jLabel4.setText("jLabel1");
-        menu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 80));
-
-        clbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        clbTrangChu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/TrangChu_24x.jpg"))); // NOI18N
-        clbTrangChu.setText("    Trang chủ             ");
-        clbTrangChu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbTrangChuMouseClicked(evt);
-            }
-        });
-        menu.add(clbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 55));
-
-        clbGiaoDich.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbGiaoDich.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GiaoDich_24x.jpg"))); // NOI18N
-        clbGiaoDich.setText("    Giao dịch         ");
-        clbGiaoDich.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbGiaoDichMouseClicked(evt);
-            }
-        });
-        menu.add(clbGiaoDich, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, 250, 55));
-
-        clbHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbHoaDon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HoaDon_24x.jpg"))); // NOI18N
-        clbHoaDon.setText("    Hóa đơn          ");
-        clbHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbHoaDonMouseClicked(evt);
-            }
-        });
-        menu.add(clbHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 250, 55));
-
-        clbDoiHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbDoiHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/DoiHang_24x.jpg"))); // NOI18N
-        clbDoiHang.setText("    Đổi hàng          ");
-        clbDoiHang.setAutoscrolls(true);
-        clbDoiHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbDoiHangMouseClicked(evt);
-            }
-        });
-        menu.add(clbDoiHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 250, 55));
-
-        clbNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhanVien_24x.jpg"))); // NOI18N
-        clbNhanVien.setText("    Nhân viên        ");
-        clbNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbNhanVienMouseClicked(evt);
-            }
-        });
-        menu.add(clbNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 250, 55));
-
-        clbKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhachHang_24x.png"))); // NOI18N
-        clbKhachHang.setText("    Khách hàng     ");
-        clbKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbKhachHangMouseClicked(evt);
-            }
-        });
-        menu.add(clbKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 250, 55));
-
-        clbNhaCungCap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhaCungCap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhaCungCap_24x.jpg"))); // NOI18N
-        clbNhaCungCap.setText("    Nhà cung cấp  ");
-        clbNhaCungCap.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbNhaCungCapMouseClicked(evt);
-            }
-        });
-        menu.add(clbNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 250, 55));
-
-        clbSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/SanPham_24x.jpg"))); // NOI18N
-        clbSanPham.setText("    Sản phẩm         ");
-        clbSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbSanPhamMouseClicked(evt);
-            }
-        });
-        menu.add(clbSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 465, 250, 55));
-
-        clbThuocTinh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThuocTinh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ChiTietSanPham_24x.jpg"))); // NOI18N
-        clbThuocTinh.setText("    Thuộc tính        ");
-        clbThuocTinh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbThuocTinhMouseClicked(evt);
-            }
-        });
-        menu.add(clbThuocTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 250, 55));
-
-        clbNhapHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbNhapHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/NhapHang_24x.jpg"))); // NOI18N
-        clbNhapHang.setText("    Nhập hàng        ");
-        clbNhapHang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbNhapHangMouseClicked(evt);
-            }
-        });
-        menu.add(clbNhapHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 575, 250, 55));
-
-        clbKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhuyenMai_24x.jpg"))); // NOI18N
-        clbKhuyenMai.setText("    Khuyến mãi       ");
-        clbKhuyenMai.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbKhuyenMaiMouseClicked(evt);
-            }
-        });
-        menu.add(clbKhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, 250, 55));
-
-        clbThongKe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThongKe_24x.jpg"))); // NOI18N
-        clbThongKe.setText("    Thống kê           ");
-        clbThongKe.setToolTipText("");
-        clbThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbThongKeMouseClicked(evt);
-            }
-        });
-        menu.add(clbThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 685, 250, 55));
-
-        clbThoat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clbThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Thoat_24x.jpg"))); // NOI18N
-        clbThoat.setText("    Thoát                 ");
-        clbThoat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                clbThoatMouseClicked(evt);
-            }
-        });
-        menu.add(clbThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 250, 55));
+        logo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 80));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Bức phá giới hạn");
-        menu.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+        logo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("ENDLESS");
-        menu.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, -1));
+        logo.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, -1));
 
-        jPanel1.setBackground(new java.awt.Color(29, 36, 46));
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Coppyright © Endless");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 16, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        menu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 790, 250, 30));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        menu.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 50));
-
-        getContentPane().add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 810));
+        getContentPane().add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 80));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -410,79 +231,29 @@ public class main extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1550, 80));
 
+        pnlMenu.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 730));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void myButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton1ActionPerformed
-        location =12;
+        location = 12;
         setTabSelect(location);
     }//GEN-LAST:event_myButton1ActionPerformed
-
-    private void clbTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbTrangChuMouseClicked
-        location = 0;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbTrangChuMouseClicked
-
-    private void clbGiaoDichMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbGiaoDichMouseClicked
-        location = 1;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbGiaoDichMouseClicked
-
-    private void clbHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbHoaDonMouseClicked
-        location = 2;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbHoaDonMouseClicked
-
-    private void clbDoiHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbDoiHangMouseClicked
-        location = 3;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbDoiHangMouseClicked
-
-    private void clbNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhanVienMouseClicked
-        location = 4;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbNhanVienMouseClicked
-
-    private void clbKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbKhachHangMouseClicked
-        location = 5;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbKhachHangMouseClicked
-
-    private void clbNhaCungCapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhaCungCapMouseClicked
-        location = 6;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbNhaCungCapMouseClicked
-
-    private void clbSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbSanPhamMouseClicked
-        location = 7;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbSanPhamMouseClicked
-
-    private void clbThuocTinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThuocTinhMouseClicked
-        location = 8;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbThuocTinhMouseClicked
-
-    private void clbNhapHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbNhapHangMouseClicked
-        location =9;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbNhapHangMouseClicked
-
-    private void clbKhuyenMaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbKhuyenMaiMouseClicked
-        location =10;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbKhuyenMaiMouseClicked
-
-    private void clbThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThongKeMouseClicked
-        location =11;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbThongKeMouseClicked
-
-    private void clbThoatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clbThoatMouseClicked
-        location =12;
-        setTabSelect(location);
-    }//GEN-LAST:event_clbThoatMouseClicked
 
     /**
      * @param args the command line arguments
@@ -530,31 +301,16 @@ public class main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel GiaoDien;
-    private controller.CustomLabel clbDoiHang;
-    private controller.CustomLabel clbGiaoDich;
-    private controller.CustomLabel clbHoaDon;
-    private controller.CustomLabel clbKhachHang;
-    private controller.CustomLabel clbKhuyenMai;
-    private controller.CustomLabel clbNhaCungCap;
-    private controller.CustomLabel clbNhanVien;
-    private controller.CustomLabel clbNhapHang;
-    private controller.CustomLabel clbSanPham;
-    private controller.CustomLabel clbThoat;
-    private controller.CustomLabel clbThongKe;
-    private controller.CustomLabel clbThuocTinh;
-    private controller.CustomLabel clbTrangChu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private controller.WhiteLabel lblAnhDaiDien;
-    private javax.swing.JPanel menu;
+    private javax.swing.JPanel logo;
     private controller.BlackButton myButton1;
+    private javax.swing.JPanel pnlMenu;
     // End of variables declaration//GEN-END:variables
 }
